@@ -23,40 +23,8 @@
     </div> <!-- Banner row -->
 
     <!-- menu de navigation -->
-    <div style="width: 100%;">
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
-            <a class="navbar-brand pl-1" href="#">Stargate Communication</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse pr-2" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 ml-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Action 1</a>
-                            <a class="dropdown-item" href="#">Action 2</a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="my-0 ml-2 my-lg-0">
-                    <a href="" class=" btn btn-outline-primary">
-                        <span>Connexion</span>
-                        <i class="fas fa-user fa-fw "></i>
-                    </a href="">
-                </div>
-            </div>
-        </nav>
-    </div>
+    <?php include('inc/menu.php')?>
+
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col-md-3">
@@ -155,39 +123,15 @@
 
         </div> <!-- fin row-->
     </div><!-- fin comtainer-fluid -->
-    <footer id="bar" class="row fixed-bottom bg-dark" style="margin:auto 0; width: 100%;">
-        <p class="text-center text-white mt-3">&copy; CopyRight</p>
-    </footer>
+    
+    <?php include("inc/footer.php") ?>
+
     <!-- CDN pour le js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
 
-    <script>
-
-        $(window).scroll(() => {
-            var initscroll = $(window).scrollTop();
-            // console.log(initscroll);
-            var docH = $(document).height();
-            // console.log(docH);
-
-            var winH = $(window).height();
-            // console.log(winH);
-
-            var scroll = (initscroll / (docH - winH)) * 100;
-            console.log(scroll);
-
-            if (scroll > 0) {
-                $('#bar').css('display', 'none');
-            } else {
-                $('#bar').css('display', 'block');
-            }
-            setTimeout(() => {
-                $('#bar').css('display', 'block');
-            }, 1000);
-
-        })
-    </script>
+    <script src="assets/js/footer.js"></script>
 </body>
 
 </html>
