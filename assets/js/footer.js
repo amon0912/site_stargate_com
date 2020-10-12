@@ -8,7 +8,7 @@ $(window).scroll(() => {
     // console.log(winH);
 
     var scroll = (initscroll / (docH - winH)) * 100;
-    console.log(scroll);
+    // console.log(scroll);
 
     if (scroll > 0) {
         $('#bar').css('display', 'none');
