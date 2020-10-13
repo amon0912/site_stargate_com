@@ -19,14 +19,14 @@
 
     if (!empty($_POST['verify'])) {
         $verify = strip_tags(trim($_POST['verify']));
-        $q = $db->prepare("SELECT id_client FROM client WHERE id_client = ?");
+        $q = $db->prepare("SELECT * FROM client WHERE id_client = ?");
         $q->execute([$verify]);
         $cpt = $q->rowCount();
         if ($cpt) {
             $req = $db->prepare("UPDATE client set confirmation_client = ? WHERE id_client = ?");
             $req->execute([true, $verify]);
             
-            while ($data = $req->fetch()) {
+            while ($data = $q->fetch()) {
                 $_SESSION['id'] = $data['id_client'];
                 $_SESSION['nom'] = $data['nom_client'];
                 $_SESSION['prenoms'] = $data['prenoms_client'];
