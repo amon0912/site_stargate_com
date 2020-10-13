@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+    <?php var_dump($_SESSION)?>
     <?php
     $pages = scandir('pages/');
     // var_dump($pages);
@@ -53,7 +55,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
 
     <script src="assets/js/footer.js"></script>
-    <script src="assets/js/kconnexion_client.js"></script>
+    <script src="assets/js/k<?= !empty($_GET['p']) ? $p : '' ?>_client.js"></script>
 </body>
 
 </html>

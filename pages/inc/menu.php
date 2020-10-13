@@ -22,7 +22,8 @@
             </ul>
             <div class="my-0 ml-2 my-lg-0">
                 <a href="?p=connexion" class=" btn btn-outline-primary">
-                    <span>Connexion</span>
+                    <?= !empty($_SESSION['id']) ? '<span>Se déconnecter</span>' : '<span>Connexion</span>' ?>
+
                     <i class="fas fa-user fa-fw "></i>
                 </a href="">
             </div>

@@ -13,6 +13,18 @@
             </div>
             <form id="form" method="post">
                 <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input id="nom" class="form-control" type="text" name="nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenoms">Prénoms</label>
+                    <input id="prenoms" class="form-control" type="text" name="prenoms">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input id="email" class="form-control" type="text" name="email">
+                </div>
+                <div class="form-group">
                     <label for="tel">Contact</label>
                     <input id="tel" class="form-control" type="text" name="tel">
                 </div>
@@ -20,9 +32,9 @@
                     <label for="pass">Mot de passe</label>
                     <input id="pass" class="form-control" type="password" name="pass">
                 </div>
+                <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'>
+                <a href="?p=inscription" class="btn ml-3">Déjà inscrire</a>
 
-                <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'> 
-                <a href="?p=inscription" class="btn ml-3">S'inscrire</a>
             </form>
         </div>
 
