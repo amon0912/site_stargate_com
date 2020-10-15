@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <?php var_dump($_SESSION)?>
     <?php
     $pages = scandir('pages/');
     // var_dump($pages);
@@ -34,9 +33,9 @@
     ?>
 
     <!-- Banner row -->
-    <div class="" style="width: 100%;">
+    <div style="width: 100%;">
         <div class="card border-0 justify-content-center ">
-            <video type="video/mp4" class="img-fluid" src="assets/videos/Commuty-manager-solution.mp4" preload="auto" controls muted loop autoplay></video>
+            <video type="video/mp4"  class="img-fluid" src="assets/videos/Commuty-manager-solution.mp4" preload="auto" controls muted loop autoplay></video>
         </div>
     </div> <!-- Banner row -->
 

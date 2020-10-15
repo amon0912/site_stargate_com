@@ -14,14 +14,15 @@
             <form id="form" method="post">
                 <div class="form-group">
                     <label for="tel">Contact</label>
-                    <input id="tel" class="form-control" type="text" name="tel">
+                    <input id="tel" class="form-control" placeholder="Entrez votre numéro" type="text" name="tel">
                 </div>
                 <div class="form-group">
                     <label for="pass">Mot de passe</label>
-                    <input id="pass" class="form-control" type="password" name="pass">
+                    <input id="pass" class="form-control" placeholder="Entrez votre mot de passe" type="password"
+                        name="pass">
                 </div>
 
-                <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'> 
+                <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'>
                 <a href="?p=inscription" class="btn ml-3">S'inscrire</a>
             </form>
         </div>
