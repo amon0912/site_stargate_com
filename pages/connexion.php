@@ -24,6 +24,7 @@
 
                 <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'>
                 <a href="?p=inscription" class="btn ml-3">S'inscrire</a>
+                <a href="?p=forget" class="btn ml-3">passe oublié</a>
             </form>
         </div>
 

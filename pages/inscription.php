@@ -32,6 +32,10 @@
                     <label for="pass">Mot de passe</label>
                     <input id="pass" class="form-control" type="password" name="pass">
                 </div>
+                <div class="form-group">
+                    <label for="pass1">Confirmez le mot de passe</label>
+                    <input id="pass1" class="form-control" type="password" name="pass1">
+                </div>
                 <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'>
                 <a href="?p=inscription" class="btn ml-3">Déjà inscrire</a>
 

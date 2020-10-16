@@ -21,11 +21,21 @@
                 </li>
             </ul>
             <div class="my-0 ml-2 my-lg-0">
-                <a href="?p=connexion" class=" btn btn-outline-primary">
-                    <?= !empty($_SESSION['id']) ? '<span>Se déconnecter</span>' : '<span>Connexion</span>' ?>
-
+                <?php
+                if (!empty($_SESSION['id'])) {
+                    echo '<span style="color:orange; font-weight:bold;">'.$_SESSION["nom"].'<span>' .' <a href="?p=deconnexion" class=" btn btn-outline-primary">' .
+                        ' <span>Se Déconnecter</span>
                     <i class="fas fa-user fa-fw "></i>
-                </a href="">
+                </a>';
+                } else {
+                    echo '<a href="?p=connexion" class=" btn btn-outline-primary">
+                    <span>Se connecter</span>
+                    <i class="fas fa-user fa-fw "></i>
+                </a>';
+                }
+
+                ?>
+
             </div>
         </div>
     </nav>

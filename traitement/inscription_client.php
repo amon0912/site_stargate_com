@@ -1,14 +1,16 @@
 <?php
 include('../config/db.php');
+include('../PHPMailer/envoiMail.php');
 
 $err = 0;
 $msg = 'Erreur de connexion au serveur';
-if (!empty($_POST['nom']) && !empty($_POST['prenoms']) && !empty($_POST['tel']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
+if (!empty($_POST['nom']) && !empty($_POST['prenoms']) && !empty($_POST['tel']) && !empty($_POST['email']) && !empty($_POST['pass']) && !empty($_POST['pass1'])) {
     $nom = trim(strip_tags($_POST['nom']));
     $prenoms = trim(strip_tags($_POST['prenoms']));
     $email = trim(strip_tags($_POST['email']));
     $tel = trim(strip_tags($_POST['tel']));
     $pass = trim(strip_tags($_POST['pass']));
+    $pass1 = trim(strip_tags($_POST['pass1']));
     if (strlen($nom) < 2) {
         $err = 0;
         $msg = 'Nom trop court';
@@ -21,26 +23,31 @@ if (!empty($_POST['nom']) && !empty($_POST['prenoms']) && !empty($_POST['tel']) 
     } elseif (is_numeric($tel) && strlen($tel) < 8) {
         $err = 0;
         $msg = 'Contact incorrecte';
-    } elseif (strlen($pass) < 4) {
+    } elseif (strlen($pass) < 4 || strlen($pass1) < 4 || $pass != $pass1) {
         $err = 0;
-        $msg = 'Mot de passe au moins 8 caractères';
+        $msg = 'Mots de passe: au moins 8 caractères <br> et identique';
     } else {
-        $id = uniqid(time());
+        $id = md5(uniqid(time()));
         $hash = password_hash($pass, PASSWORD_DEFAULT);
-        $err = 1;
-        $msg = 'Inscription éffectuée avec succès <br><strong>Confirmez votre Inscrition sur votre boite mail </strong>';
-        $q = $db->prepare("INSERT INTO client (id_client, nom_client, prenoms_client, email_client, tel_client, pass) VALUES (?,?,?,?,?,?)");
-        $q->execute([$id, $nom, $prenoms, $email, $tel, $hash]);
 
-        ini_set("SMTP", "aspmx.l.google.com");
-        ini_set("sendmail_from", "amon0912@gmail.com");
-        $to = $email;
-        $subject = 'Confirmation du compte';
-        $message = 'Bonjour ! ok http://localhost/siteStargateCom/traitement/verify.php?verify=' . $id;
+        $verifyCompte = $db->prepare("SELECT * FROM client WHERE tel_client = ?");
+        $verifyCompte->execute([$tel]);
+        $cpt = $verifyCompte->rowCount();
+        if ($cpt) {
+            $err = 0;
+            $msg = 'Le compte existe déjà';
+        } else {
 
-        $headers = 'MIME-Version: 1.0' . "\r\n" . 'Content-type: text/html; charset=iso-8859-1' . "\r\n" .'From: amon0912@gmail.com' . "\r\n" . 'Reply-To: amon0912@gmail.com' . "\r\n" . 'X-Mailer: PHP/' .phpversion();
+            $err = 1;
+            $msg = 'Inscription éffectuée avec succès <br><strong>Confirmez votre Inscrition sur votre boite mail </strong>';
 
-        mail($to, $subject, $message, $headers);
+            $q = $db->prepare("INSERT INTO client (id_client, nom_client, prenoms_client, email_client, tel_client, pass) VALUES (?,?,?,?,?,?)");
+            $q->execute([$id, $nom, $prenoms, $email, $tel, $hash]);
+            $lien =  'Veuillez cliquez sur le lien pour la confirmation de votre compte<br>' . "http://localhost/siteStargateCom/traitement/verify.php/?verify=" . $id;
+
+            $objet = 'Confirmation de votre compte';
+            envoiMail($lien, $objet, $nom, $email);
+        }
     }
 } else {
     $err = 0;

@@ -16,7 +16,7 @@
 <body>
     <?php
     $pages = scandir('pages/');
-    // var_dump($pages);
+    // var_dump($_SESSION);
     if (!empty($_GET['p'])) {
         if ($_GET['p'] != '.' || $_GET['p'] != '..' || $_GET['p'] != 'inc') {
             if (in_array($_GET['p'] . '.php', $pages)) {

@@ -1,6 +1,6 @@
 <?php session_start()?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -37,10 +37,10 @@
             
             </script>';
 
-            header('Location: ../');
+            header('Location: ../..');
         }
     } else {
-    }
+    
     ?>
     <div class="container">
         <div class="text-center m-5">
@@ -56,7 +56,7 @@
     </div>
 
     <?php
-
+    }
     ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

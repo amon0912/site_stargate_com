@@ -19,7 +19,7 @@ form.addEventListener('submit', function (e) {
                 msg.className = 'alert-danger text-center rounded';
             }
         }
-        console.log(xhr.response);
+        // console.log(xhr.response);
     }
 
 

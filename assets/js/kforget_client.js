@@ -12,7 +12,7 @@ form.addEventListener('submit', function (e) {
                 msg.innerHTML = xhr.response.msg;
 
                 setTimeout(()=>{
-                    window.location.href = '?=home';
+                    window.location.href = '?=connexion';
                 },3000);
             } else {
                 msg.innerHTML = xhr.response.msg;
@@ -23,7 +23,7 @@ form.addEventListener('submit', function (e) {
     }
 
 
-    xhr.open('POST', 'traitement/connexion_client.php', true);
+    xhr.open('POST', 'traitement/forget_client.php', true);
     xhr.responseType = 'json';
     xhr.send(data);
 });
