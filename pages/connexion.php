@@ -22,7 +22,7 @@
                         name="pass">
                 </div>
 
-                <input type="submit" class="form-control btn btn-success mt-2" style="width: 25%;" value='Enregistez'>
+                <input type="submit" class="form-control btn btn-success mt-2" style="width: 30%;"  value='Enregistrez'>
                 <a href="?p=inscription" class="btn ml-3">S'inscrire</a>
                 <a href="?p=forget" class="btn ml-3">passe oublié</a>
             </form>

@@ -12,7 +12,7 @@ form.addEventListener('submit', function (e) {
                 msg.innerHTML = xhr.response.msg;
 
                 setTimeout(()=>{
-                    window.location.href = '?=home';
+                    window.location.href = '?p=home';
                 },3000);
             } else {
                 msg.innerHTML = xhr.response.msg;
