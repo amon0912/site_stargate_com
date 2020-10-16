@@ -1,6 +1,6 @@
 <div style="width: 100%;">
     <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
-        <a class="navbar-brand pl-1" href="">Stargate Communication</a>
+        <a class="navbar-brand pl-1" href="index.php">Stargate Communication</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
