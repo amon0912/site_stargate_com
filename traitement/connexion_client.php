@@ -28,7 +28,7 @@ if (!empty($_POST['tel']) && !empty($_POST['pass'])) {
             $hash = password_verify($pass, $tab['pass']);
             if ($hash) {
                 $err = 1;
-                $msg = 'ok';
+                $msg = '';
                 $_SESSION['id'] = $tab['id'];
                 $_SESSION['nom'] = $tab['nom'];
                 // Ajout d'information apres la connexion

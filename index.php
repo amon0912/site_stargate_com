@@ -35,9 +35,11 @@
     <!-- Banner row -->
     <div style="width: 100%;">
         <div class="card border-0 justify-content-center ">
-            <video type="video/mp4"  class="img-fluid" src="assets/videos/Commuty-manager-solution.mp4" preload="auto" controls muted loop autoplay></video>
+            <video type="video/mp4" style="width: 100%;" class="img-fluid" src="assets/videos/Commuty-manager-solution.mp4" preload="auto" controls muted loop autoplay></video>
         </div>
+        <?php include_once('pages/inc/arrow.php'); ?>
     </div> <!-- Banner row -->
+
 
     <!-- menu de navigation -->
     <?php include('pages/inc/menu.php') ?>

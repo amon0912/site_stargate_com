@@ -6,32 +6,41 @@
         <div class="col-md-6">
             <div class="card mb-3 arrondir-8">
                 <div class="card-header">
-                    <img src="assets/images/logo.png" class="rounded-circle" height="50" width="40" alt="">
+                    <a href="">
+                        <img src="assets/images/logo.png" class="rounded-circle" height="50" width="50" alt=""></a>
                     Stargate Communication
                 </div>
                 <div class="card-body">
-                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4"
-                        src="assets/videos/promo1.mp4"></video>
+                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4" src="assets/videos/promo1.mp4"></video>
+                </div>
+                <div class="card-footer">
+                    <a name="" id="" class="btn btn-primary btn-sm" href="#" role="button">B</a>
                 </div>
             </div>
             <div class="card mb-3 arrondir-8">
                 <div class="card-header">
-                    <img src="assets/images/logo.png" class="rounded-circle" height="50" width="40" alt="">
+                    <a href="">
+                        <img src="assets/images/logo.png" class="rounded-circle" height="50" width="50" alt=""></a>
                     Stargate Communication
                 </div>
                 <div class="card-body">
-                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4"
-                        src="assets/videos/promo2.mp4"></video>
+                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4" src="assets/videos/promo2.mp4"></video>
+                </div>
+                <div class="card-footer">
+                    <a name="" id="" class="btn btn-primary" href="#" role="button">B</a>
                 </div>
             </div>
             <div class="card mb-3 arrondir-8">
                 <div class="card-header">
-                    <img src="assets/images/logo.png" class="rounded-circle arrondir-8" height="50" width="40" alt="">
+                    <a href="">
+                        <img src="assets/images/logo.png" class="rounded-circle arrondir-8" height="50" width="50" alt=""></a>
                     Stargate Communication
                 </div>
                 <div class="card-body">
-                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4"
-                        src="assets/videos/promo3.mp4"></video>
+                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4" src="assets/videos/promo3.mp4"></video>
+                </div>
+                <div class="card-footer">
+                    <a name="" id="" class="btn btn-primary" href="#" role="button">B</a>
                 </div>
             </div>
         </div> <!-- fin col md B -->
