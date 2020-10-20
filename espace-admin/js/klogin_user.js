@@ -13,7 +13,7 @@ form.addEventListener('submit', function (e) {
 
                 setTimeout(() => {
                     window.location.href = '?p=offre';
-                }, 3000);
+                }, 1000);
             } else {
                 msg.innerHTML = xhr.response.msg;
                 msg.className = 'alert-danger text-center rounded';

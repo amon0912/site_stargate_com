@@ -12,5 +12,16 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Item 2</a>
             </li>
         </ul>
+        <?php
+        if (!empty($_SESSION['id'])) { ?>
+
+            <div class="">
+                <a class="mr-3 btn btn-outline-danger" href="?p=logout">Se déconnecter</a>
+            </div>
+
+        <?php
+        }
+        ?>
+
     </div>
 </nav>

@@ -4,7 +4,7 @@ include('../../config/db.php');
 
 $err = 0;
 $msg = 'Erreur de connexion au serveur';
-if (!empty($_POST['lib_offre']) && !empty($_POST['type_offre']) && !empty($_POST['fichier']) && !empty($_POST['descrip']) && !empty($_POST['action']) ) {
+if (!empty($_POST['pass']) && !empty($_POST['pseudo'])) {
 
     $pseudo = trim(strip_tags($_POST['pseudo']));
     $pass = trim(strip_tags($_POST['pass']));
