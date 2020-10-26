@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <?php include('inc/motion.php') ?>
     <div class="row mt-3 mb-5">
         <div class="col-md-3">
             <h1>Espace Pub</h1>

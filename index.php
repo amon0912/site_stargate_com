@@ -14,7 +14,12 @@
 </head>
 
 <body>
-
+    <?php
+        if (empty($_GET)) {
+           header('Location: bienvenue');
+        }
+    
+    ?>
     <?php
     $pages = scandir('pages/');
     // var_dump($_SESSION);
