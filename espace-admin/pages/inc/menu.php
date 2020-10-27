@@ -13,15 +13,13 @@
             </li>
         </ul>
         <?php
-        if (!empty($_SESSION['id'])) { ?>
+        if (!empty($_SESSION['id_user'])) { ?>
 
             <div class="">
                 <a class="mr-3 btn btn-outline-danger" href="?p=logout">Se déconnecter</a>
             </div>
 
-        <?php
-        }
-        ?>
+        <?php } ?>
 
     </div>
 </nav>

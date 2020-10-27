@@ -26,13 +26,13 @@ if (!empty($_GET['p'])) {
         $p = 'erreur';
     }
 } else {
-    $p = 'login';
+    $p = 'login-user';
 }
 ?>
 
 <body>
     <?php 
-    if (!empty($_SESSION['id'])) {
+    if (!empty($_SESSION['id_user'])) {
         include_once('pages/inc/menu.php');    
     }
     ?>
@@ -44,7 +44,7 @@ if (!empty($_GET['p'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
 
-    <script src="js/k<?= !empty($_GET['p']) ? $p : $p ?>_user.js"></script>
+    <script src="js/k<?= !empty($_GET['p']) ? $p : $p ?>.js"></script>
 </body>
 
 </html>

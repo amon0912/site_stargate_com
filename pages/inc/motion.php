@@ -10,6 +10,7 @@
         background-color: blue;
         height: 5px;
         width: 0%;
+        /* transition: 1s; */
     }
 </style>
 
@@ -25,13 +26,10 @@
         i = i + 1;
         if (i <= 100) {
             effet.style.width = i + "%";
-            
         } else {
             i = 0;
         }
         // console.log(i);
     }, 100);
-    // setTimeout(() => {
-    //     clearInterval(e);
-    // }, 6000)
+    
 </script>

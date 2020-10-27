@@ -39,7 +39,7 @@ if (!empty($_POST['pass']) && !empty($_POST['pseudo'])) {
 
             $err = 1;
             $msg = '';
-            $_SESSION['id'] = '1234qwert'; 
+            $_SESSION['id_user'] = '1234qwert'; 
         } else {
             $err = 0;
             $msg = "Le compte n'existe pas encore ou mot de passe incorrect";

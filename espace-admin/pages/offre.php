@@ -1,8 +1,8 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-4 mb-3">
-            <a class="lead text-decoration-none" href="?p=add">
-            <div class="card w-100 h-100 btn-outline-primary">
+            <a class="lead text-decoration-none" href="?p=add-offre">
+                <div class="card w-100 h-100 btn-outline-primary">
                     <div class="card-body">
                         <i class="fas fa-plus-circle fa-3x fa-fw"></i>
                         <p class="card-text">Ajoutez une offre</p>
