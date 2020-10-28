@@ -4,7 +4,7 @@ include('../../config/db.php');
 
 $err = 0;
 $msg = 'Erreur de connexion au serveur';
-if (!empty($_POST['id_deco']) && !empty($_POST['no-change-img']) && !empty($_POST['update']) && !empty($_POST['lib_offre']) && !empty($_POST['type_offre']) && !empty($_POST['descrip']) && !empty($_POST['action'])) {
+if (!empty($_POST['id_offre']) && !empty($_POST['no-change-img']) && !empty($_POST['update']) && !empty($_POST['lib_offre']) && !empty($_POST['type_offre']) && !empty($_POST['descrip']) && !empty($_POST['action'])) {
 
     // Section mise ajout sans modification de l'image ou de le video
     $lib_offre = trim(strip_tags($_POST['lib_offre']));
@@ -13,12 +13,11 @@ if (!empty($_POST['id_deco']) && !empty($_POST['no-change-img']) && !empty($_POS
     $action = trim(strip_tags($_POST['action']));
 
     $id = $_POST['update'];
-    $q = $db->prepare("update deco set lib_offre = ?, type_deco = ?, description_offre = ?, action = ? where id_offre = ? ");
-    $q->execute([$lib_offre, $type_offre, $descrip, $action, $_POST['id_deco']]);
+    $q = $db->prepare("update offre set lib_offre = ?, type_offre = ?, description_offre = ?, action_offre = ? where id_offre = ? ");
+    $q->execute([$lib_offre, $type_offre, $descrip, $action, $_POST['id_offre']]);
     $err = 1;
     $msg = 'Mise à jour éffectuée';
 } else {
-    # code...
 
     if (!empty($_POST['lib_offre']) && !empty($_POST['type_offre']) && !empty($_POST['descrip']) && !empty($_POST['action'])) {
         // if (true) {
@@ -34,37 +33,57 @@ if (!empty($_POST['id_deco']) && !empty($_POST['no-change-img']) && !empty($_POS
         } else {
             // Section mise ajout avec modification de l'image ou de le video
             if (!empty($_POST['update']) && !empty($_POST['id_offre'])) {
-                $infosfichier = pathinfo($_FILES['fichier']['name']);
-                $extension_upload = $infosfichier['extension'];
-                $extensions_autorisees = ['jpg', 'jpeg', 'gif', 'png', 'mp4'];
-                $lienodl = time() . '_' . basename($_FILES['fichier']['name']);
-                $lien = str_replace(' ', '_', $lienodl);
-                if (in_array($extension_upload, $extensions_autorisees) && $type_offre == 'image') {
-                    // On peut valider le fichier et le stocker définitivement
-                    move_uploaded_file($_FILES['fichier']['tmp_name'], '../../assets/uploads/' . $lien);
-                    // $msg = "L'envoi a bien été effectué !";
-                    $msg = '';
-                    $err = 1;
-                    $id = $_POST['update'];
-                    $q = $db->prepare("update offre set  titre_offre = ?, type_offre = ?, description_offre = ?, action_offre = ?, lien_offre = ?, id_user = ? where id_offre = ? ");
-                    $q->execute([$lib_offre, $type_offre, $descrip, $action, $lien, $_SESSION['id_user'],  $_POST['id_offre']]);
 
-                    unlink('../../assets/uploads/' . $_POST['lienold']);
-                } else if (in_array($extension_upload, $extensions_autorisees) && $type_offre == 'video') {
-                    // On peut valider le fichier et le stocker définitivement
-                    move_uploaded_file($_FILES['fichier']['tmp_name'], '../../assets/uploads/' . $lien);
-                    // $msg = "L'envoi a bien été effectué !";
-                    $msg = '';
-                    $err = 1;
-                    $id = $_POST['update'];
-                    $q = $db->prepare("update offre set  titre_offre = ?, type_offre = ?, description_offre = ?, action_offre = ?, lien_offre = ?, id_user = ? where id_offre = ? ");
-                    $q->execute([$lib_offre, $type_offre, $descrip, $action, $lien, $_SESSION['id_user'],  $_POST['id_offre']]);
+                if ($type_offre == 'image') {
+                    # code...
+                    $infosfichier = pathinfo($_FILES['fichier']['name']);
+                    $extension_upload = $infosfichier['extension'];
+                    $extensions_autorisees = ['jpg', 'jpeg', 'gif', 'png'];
+                    $lienodl = time() . '_' . basename($_FILES['fichier']['name']);
+                    $lien = str_replace(' ', '_', $lienodl);
+                    if (in_array($extension_upload, $extensions_autorisees)) {
+                        // On peut valider le fichier et le stocker définitivement
+                        move_uploaded_file($_FILES['fichier']['tmp_name'], '../../assets/uploads/' . $lien);
 
-                    unlink('../../assets/uploads/' . $_POST['lienold']);
-                } else {
-                    $err = 0;
-                    $msg = 'type de format incorrect';
+
+                        $q = $db->prepare("update offre set  lib_offre = ?, type_offre = ?, description_offre = ?, action_offre = ?, lien_offre = ?, id_user = ? where id_offre = ? ");
+                        $q->execute([$lib_offre, $type_offre, $descrip, $action, $lien, $_SESSION['id_user'],  $_POST['id_offre']]);
+
+                        $msg = 'Mise à jour éffectuée';
+                        $err = 1;
+
+                        unlink('../../assets/uploads/' . $_POST['lienold']);
+                    } else {
+                        $err = 0;
+                        $msg = "Vous avez chargé un format <strong>video</strong> au lieu d'une image ";
+                    }
                 }
+
+                if ($type_offre == 'video') {
+                    # code...
+                    $infosfichier = pathinfo($_FILES['fichier']['name']);
+                    $extension_upload = $infosfichier['extension'];
+                    $extensions_autorisees = ['mp4'];
+                    $lienodl = time() . '_' . basename($_FILES['fichier']['name']);
+                    $lien = str_replace(' ', '_', $lienodl);
+                    if (in_array($extension_upload, $extensions_autorisees)) {
+                        // On peut valider le fichier et le stocker définitivement
+                        move_uploaded_file($_FILES['fichier']['tmp_name'], '../../assets/uploads/' . $lien);
+
+
+                        $q = $db->prepare("update offre set  lib_offre = ?, type_offre = ?, description_offre = ?, action_offre = ?, lien_offre = ?, id_user = ? where id_offre = ? ");
+                        $q->execute([$lib_offre, $type_offre, $descrip, $action, $lien, $_SESSION['id_user'],  $_POST['id_offre']]);
+
+                        $msg = 'Mise à jour éffectuée';
+                        $err = 1;
+
+                        unlink('../../assets/uploads/' . $_POST['lienold']);
+                    } else {
+                        $err = 0;
+                        $msg = "Vous avez chargé un format <strong>image</strong> au lieu d'une vidéo ";
+                    }
+                }
+
             } else {
                 // section ajout des donnees dans la base de donnee
                 // Testons si l'extension est autorisée
@@ -83,11 +102,11 @@ if (!empty($_POST['id_deco']) && !empty($_POST['no-change-img']) && !empty($_POS
                         $q = $db->prepare("insert into offre (id_offre,	lib_offre, lien_offre,	type_offre,	description_offre,id_user, action_offre) values (?,?,?,?,?,?,?)");
                         $q->execute([$id, $lib_offre, $lien, $type_offre, $descrip, $_SESSION['id_user'], $action]);
 
-                        $msg = 'upload ok';
+                        $msg = 'Offre ajoutée avec succèss';
                         $err = 1;
                     } else {
                         $err = 0;
-                        $msg = "Vous avez choisi un format video ";
+                        $msg = "Vous avez chargé un format <strong>video</strong> au lieu d'une image ";
                     }
                 }
 
@@ -106,11 +125,11 @@ if (!empty($_POST['id_deco']) && !empty($_POST['no-change-img']) && !empty($_POS
                         $q = $db->prepare("insert into offre (id_offre,	lib_offre, lien_offre,	type_offre,	description_offre,id_user, action_offre) values (?,?,?,?,?,?,?)");
                         $q->execute([$id, $lib_offre, $lien, $type_offre, $descrip, $_SESSION['id_user'], $action]);
 
-                        $msg = 'upload ok';
+                        $msg = 'Offre ajoutée avec succèss';
                         $err = 1;
                     } else {
                         $err = 0;
-                        $msg = "Vous avez choisi un format image";
+                        $msg = "Vous avez chargé un format<strong> image </strong> au lieu d'une vidéo";
                     }
                 }
             }

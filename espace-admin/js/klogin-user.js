@@ -12,7 +12,7 @@ form.addEventListener('submit', function (e) {
                 msg.innerHTML = xhr.response.msg;
 
                 setTimeout(() => {
-                    window.location.href = '?p=offre';
+                    window.location.href = '?p=mon-espace';
                 }, 1000);
             } else {
                 msg.innerHTML = xhr.response.msg;

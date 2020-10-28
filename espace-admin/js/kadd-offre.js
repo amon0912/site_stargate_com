@@ -11,9 +11,9 @@ form.addEventListener('submit', function (e) {
                 msg.className = 'alert-success text-center rounded';
                 msg.innerHTML = xhr.response.msg;
 
-                // setTimeout(() => {
-                //     window.location.href = '?p=offre';
-                // }, 1000);
+                setTimeout(() => {
+                    window.location.href = '?p=add-offre';
+                }, 1000);
             } else {
                 msg.innerHTML = xhr.response.msg;
                 msg.className = 'alert-danger text-center rounded';
