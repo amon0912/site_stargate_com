@@ -1,23 +1,51 @@
+<?php
+include('config/db.php');
+
+$q = $db->prepare("select * from offre order by id_offre desc");
+$q->execute();
+
+$cpt = $q->rowCount();
+
+?>
+
 <div class="container-fluid">
-    <?php include('inc/motion.php') ?>
+    <?php //include('inc/motion.php') ?>
     <div class="row mt-3 mb-5">
         <div class="col-md-3">
             <h1>Espace Pub</h1>
         </div> <!-- fin col md A -->
         <div class="col-md-6">
-            <div class="card mb-3 arrondir-8">
-                <div class="card-header">
-                    <a href="">
-                        <img src="assets/images/logo.png" class="rounded-circle" height="50" width="50" alt=""></a>
-                    Stargate Communication
-                </div>
-                <div class="card-body">
-                    <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4" src="assets/videos/promo1.mp4"></video>
-                </div>
-                <div class="card-footer">
-                    <a name="" id="" class="btn btn-primary btn-sm" href="#" role="button">B</a>
-                </div>
-            </div>
+
+            <?php
+            if ($cpt) {
+                while ($data = $q->fetch(PDO::FETCH_ASSOC)) {
+                    $items[] = $data;
+                }
+                foreach ($items as $item) { ?>
+                    <div class="card mb-3 arrondir-8">
+                        <div class="card-header text-capitalize">
+                            <a href="">
+                                <img src="assets/images/logo.png" class="rounded-circle" height="50" width="50" alt=""></a>
+                            Stargate Communication | <?= $item['lib_offre'] ?>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            if ($item['type_offre'] == 'video') { ?>
+                                <video class="img-fluid arrondir-8" style="width:100%" controls type="video/mp4" src="assets/uploads/<?= $item['lien_offre'] ?>"></video>
+
+                            <?php } else if ($item['type_offre'] == 'image') { ?>
+                                <img class="" style="width:100%;" src="assets/uploads/<?= $item['lien_offre'] ?>" alt="">
+                            <?php } ?>
+                        </div>
+                        <div class="card-footer">
+                            <a name="" id="" class="btn btn-primary btn-sm" href="#" role="button"><?= $item['action_offre'] ?></a>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+
+
+
             <div class="card mb-3 arrondir-8">
                 <div class="card-header">
                     <a href="">

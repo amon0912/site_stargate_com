@@ -15,10 +15,10 @@
 
 <body>
     <?php
-        if (empty($_GET)) {
-           header('Location: bienvenue');
-        }
-    
+    if (empty($_GET)) {
+        header('Location: bienvenue');
+    }
+
     ?>
     <?php
     $pages = scandir('pages/');

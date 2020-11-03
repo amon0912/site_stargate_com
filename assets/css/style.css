@@ -17,7 +17,8 @@ body {
 /* section pour la fleche */
 .downArrow{
 	position: absolute;
-	bottom: 50%;
+  /* bottom: 50%; */
+  top: 10%;
 	left: 50%;
 }
 .bounce {

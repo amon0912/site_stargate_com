@@ -1,5 +1,7 @@
 <?php
 
 session_destroy();
-header('Location: ?p=login');
+
+// echo '<script>window.location.href="?p=login-user"</script>';
+header('Location: ?p=login-user');
 ?>

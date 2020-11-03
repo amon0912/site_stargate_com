@@ -22,7 +22,7 @@
             </a>
         </div>
         <div class="col-md-4 mb-3">
-            <a class="lead text-decoration-none" href="?p=">
+            <a class="lead text-decoration-none" href="?p=membre">
                 <div class="card w-100 h-100 btn-outline-warning ">
                     <div class="card-body">
                         <i class="fas fa-user fa-3x fa-fw"></i>
